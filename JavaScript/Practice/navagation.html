@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navagation</title>
+</head>
+<body>
+  <p id = 'name'>
+    Nipen Paul
+    <h5> Aaaannn</h5>
+  </p>
+  <p id = 'demo'></p>
+  <script type="text/javascript">
+    const nav = document.getElementById('name').innerHTML;
+    console.log(nav);
+    const bnav = document.body.innerHTML;
+    console.log(bnav);
+    document.getElementById('demo').innerHTML = document.body.innerHTML;
+
+    const ele = document.getElementById('name');
+    console.log(ele);
+    const way1 = ele.innerHTML;
+    console.log(way1);
+    const way2 = ele.firstChild.nodeValue;
+    console.log(way2);
+    const way3 = ele.childNodes[0].nodeValue;
+    console.log(way3);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collections</title>
+</head>
+<body>
+  <div id = "div1">
+    <h3>Collections Example..</h3>
+    <p id = "p1">First Paragraph..</p>
+    <p id = "p2">second Paragraph..</p>
+    <h4>h4 tag...</h4>
+    <p id = "p3">Third Paragraph..</p>
+    <p id="show"></p>
+    <button onclick="changeFun()">Change the p tag color</button>
+  </div>
+
+
+  <script type="text/javascript">
+  const obj = document.getElementsByTagName("p");
+    console.log(obj);
+    console.log(obj.length);
+    document.getElementById('show').innerHTML = obj[1].innerHTML;
+    function changeFun(){
+      const obj2 = document.getElementsByTagName("p");
+      for(let i = 0; i < obj2.length; i++){
+        obj2[i].style.color = "blue";
+      }
+    }
+  </script>
+</body>
+</html>

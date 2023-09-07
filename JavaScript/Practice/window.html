@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BOM</title>
+</head>
+<body>
+
+  <div id = "width"></div>
+  <div id = "height"></div>
+
+  <div>
+    <input type="button" value="Open Window" onclick="openWindow()">
+  </div>
+
+  <div>
+    <input type="button" value="Close Window" onclick="closeWindow()">
+  </div>
+
+
+
+  <script type="text/javascript">
+
+   let myWindow;
+
+   const width = document.getElementById('width');
+   const height = document.getElementById('height');
+   width.innerHTML = "Window inner width is: "+window.innerWidth;
+   height.innerHTML = "Window inner height is: "+window.innerHeight;
+
+   function openWindow() {
+    myWindow = window.open("https://www.google.co.uk/");
+   }
+   function closeWindow(){
+    myWindow.close();
+   }
+  </script>
+
+
+</body>
+</html>
