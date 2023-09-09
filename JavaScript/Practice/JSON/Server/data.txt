@@ -1,0 +1,1 @@
+{"name":"Nipen","age":27,"skills":["Programming","Education"],"book":{"name":"Bela Ses"},"alive":true,"disease":null}
