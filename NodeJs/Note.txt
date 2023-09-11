@@ -1,0 +1,18 @@
+// using Terminal install nodemon
+** sudo npm install -g nodemon
+
+// install nodejs
+** sudo apt install nodejs
+
+// install npm
+** sudo apt install npm
+
+// visul code install
+** Download deb file
+** sudo apt install ./downloadFileName
+
+// server stop
+** ctrl + C
+
+//.gitignore file
+** /fileName that means this file not track in git
