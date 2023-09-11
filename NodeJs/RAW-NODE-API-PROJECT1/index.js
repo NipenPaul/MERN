@@ -7,6 +7,7 @@ Date: Sep 10, 2023
 
 // Dependencies
 const http = require('http');
+const url = require('url');
 
 // App object - module scafolding
 const app = {};
@@ -25,8 +26,15 @@ app.createServer = () =>{
 }
 // handle Request Response
 app.handleReqRes = (req, res) =>{
+    // request handling
+    // get the url and parse
+    const parsedUrl = url.parse(req.url, true);
+    const path = parsedUrl.pathname;
+    // reguler expresion for using url first and last not / to path name
+    const trimmedPath = path.replace(/^\/+|\/+$/g, '');
+
     // response handle
-    res.end('Hello Nipen Paul');
+    res.end('Hello Nipen Paul, How are you?');
 }
 
 // start the server
