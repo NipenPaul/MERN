@@ -1,0 +1,35 @@
+** Download the MongoDB community server package
+
+.deb file for ubuntu 22.04
+https://www.mongodb.com/try/download/community
+
+** Open the Terminal Ctrl+Alt+T
+
+1. sudo dpkg -i mongodb-org-server_7.0.1_amd64.deb
+2. sudo systemctl status mongod
+3. sudo systemctl start mongod
+
+
+** Download the MongoDB shell community
+https://www.mongodb.com/try/download/shell
+
+1. sudo dpkg -i fileName.deb
+sudo dpkg -i mongodb-mongosh_2.0.0_amd64.deb
+
+Terminal: mongosh
+Terminal: show dbs
+
+
+
+** Download the MongoDB GUI community version
+https://www.mongodb.com/try/download/compass
+
+1. sudo dpkg -i mongodb-compass_1.39.4_amd64.deb
+
+** Connect the server
+Default: mongodb://localhost:27017/
+** save & connect
+
+
+** Save connection to favorites
+Text: NipenDB
