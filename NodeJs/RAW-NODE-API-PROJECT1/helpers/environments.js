@@ -14,12 +14,14 @@ const environment = {};
 
 environment.staging = {
     port: 3000,
-    envName: 'staging'
+    envName: 'staging',
+    secretKey: '#EndNP',
 };
 
 environment.production = {
     port: 5000,
-    envName: 'production'
+    envName: 'production',
+    secretKey: '#EndNP38',
 };
 
 // determine which environment was passed

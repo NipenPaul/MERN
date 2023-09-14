@@ -24,20 +24,20 @@ const app = {};
 // @TODO: after remove it..
 
 // test write 
-data.create('test', 'newFile', {'name': 'Bangladesh', 'language':'Bangla'}, (err) =>{
-    console.log('Error was: ', err);
-})
+// data.create('test', 'newFile', {'name': 'Bangladesh', 'language':'Bangla'}, (err) =>{
+//     console.log('Error was: ', err);
+// })
 
-// test read
-data.read('test', 'newFile', (err, result) =>{
-    console.log(err, result);
-});
+// // test read
+// data.read('test', 'newFile', (err, result) =>{
+//     console.log(err, result);
+// });
 
-// test update
+// // test update
 
-data.update('test', 'newFile', {name: 'Nipen', language: 'English'}, (err)=>{
-    console.log(err);
-});
+// data.update('test', 'newFile', {name: 'Nipen', language: 'English'}, (err)=>{
+//     console.log(err);
+// });
 
 // test delete file
 
