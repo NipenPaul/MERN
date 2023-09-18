@@ -1,0 +1,8 @@
+$ npm init -y
+
+/* This will create a package.json file which keeps track of
+your project's dependencies.*/
+
+$ npm install express
+
+/* Use npm to install Express.js. */
