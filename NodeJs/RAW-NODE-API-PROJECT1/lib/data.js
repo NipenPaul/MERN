@@ -97,4 +97,19 @@ lib.delete = (dir, file, callback) =>{
     });
 };
 
+// list all the items in a dirctory
+lib.list = (dir, callback) =>{
+    fs.readdir(`${lib.basedir + dir}/`, (err, fileNames) =>{
+        if(!err && fileNames && fileNames.length > 0){
+            let trimedFileNames = [];
+            fileNames.forEach(fileName =>{
+                trimedFileNames.push(fileName.replace('.json', ''));
+            });
+            callback(false, trimedFileNames);
+        }else{
+            callback('Error reading directory!');
+        }
+    });
+};
+
 module.exports = lib;
