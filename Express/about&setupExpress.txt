@@ -6,3 +6,6 @@ your project's dependencies.*/
 $ npm install express
 
 /* Use npm to install Express.js. */
+
+$ npm install ejs
+// for html view page, render and view engine
