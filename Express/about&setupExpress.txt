@@ -9,3 +9,6 @@ $ npm install express
 
 $ npm install ejs
 // for html view page, render and view engine
+
+$ npm install cookie-parser
+// install for cookie data in express
