@@ -12,3 +12,6 @@ $ npm install ejs
 
 $ npm install cookie-parser
 // install for cookie data in express
+
+$ npm add multer
+// install multer for file upload system..
