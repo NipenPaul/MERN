@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const todoSchema = require('../schemas/todoSchema');
+const userSchema = require('../schemas/userSchema');
 
 const Todo = new mongoose.model("Todo", todoSchema);
+const User = new mongoose.model("User", userSchema);
 const checkLogin = require('../middlewares/checkLogin');
 
 // Todo active find using my instance method
@@ -67,10 +69,12 @@ router.get('/language', async(req, res) =>{
 
 // GET ALL THE TODOS
 router.get('/', checkLogin, async(req, res) =>{
-    console.log(req.username);
-    console.log(req.userId);
+    //console.log(req.username);
+   // console.log(req.userId);
     try {
-        const data = await Todo.find({status: 'active'});
+        //const data = await Todo.find({status: 'active'});
+        const data = await Todo.find({status: 'active'})
+        .populate('user', 'name username -_id'); // ref of user collections
         res.status(200).json({
             message: "Find all Object: ",
             result: data
@@ -136,11 +140,21 @@ router.get('/:id', async(req, res) =>{
 });
 
 // POST A TODO
-router.post("/", async(req, res) =>{
+router.post("/", checkLogin, async(req, res) =>{
     try {
-        const newTodo = new Todo(req.body);
+        const newTodo = new Todo({
+            ...req.body,
+            user: req.userId
+        });
         //console.log("This Data inserted: "+newTodo);
-        await newTodo.save(); // Removed the callback function
+       const todo = await newTodo.save(); // Removed the callback function
+       await User.updateOne({
+        _id: req.userId
+       }, {
+        $push:{
+            todos: todo._id,
+        }
+       });
 
         res.status(200).json({
             message: "Todo was inserted successfully",
