@@ -15,3 +15,6 @@ $ npm install cookie-parser
 
 $ npm add multer
 // install multer for file upload system..
+
+install mongoose for mongoDB connect
+$ npm install mongoose
