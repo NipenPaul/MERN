@@ -1,0 +1,90 @@
+start the MongoDB
+> sudo systemctl start mongod;
+
+open the terminal with command mode
+> mongosh;
+
+show all database
+> show dbs;
+
+create or use ecomerce database
+> use ecomerce;
+
+show whice database I stay
+> db;
+
+
+
+create a collection with one data inserted
+> db.products.insertOne({name: 'iPhone 10', price: 100000,
+category: 'smartphone', active: true});
+
+show all collections (products) in database (ecomerce)
+> db.products.find();
+
+clear terminal
+> cls 
+
+show all collections with pretty
+> db.products.find().pretty();
+
+insert many data in collections
+> db.products.insertMany([
+    {
+        name: 'HP Pavillion',
+        price: 8000,
+        category: 'notebook',
+        active: true
+    },
+    {
+        name: 'Dell Inspiron',
+        price: 45000,
+        category: 'notebook',
+        active: false
+    },
+    {
+        name: 'Samsung Note 8',
+        price: 72000,
+        category: 'smartphone',
+        active: true
+    },
+
+]);
+
+
+
+
+
+show particular object
+> db.products.find({active: false}).pretty();
+> db.products.find({active: false, category: 'notebook'}).pretty();
+
+show without active status
+> db.products.find({active: false, category: 'notebook'}, {active: 0}).pretty();
+> db.products.find({active: false, category: 'notebook'}, {active: 0, _id: 0}).pretty();
+
+show limited object
+> db.products.find({category: 'notebook'}).pretty().limit(1);
+
+show skip top object and limited show
+> db.products.find({category: 'notebook'}).pretty().limit(1).skip(1);
+
+using findOne for one object but not valid use pretty()
+> db.products.findOne({category: 'notebook'});
+
+
+
+
+update object
+> db.products.updateOne({name: 'iPhone 10', active: true}, {$set: {price: 120000}})
+> db.products.find({name: 'iPhone 10'})
+
+active status true, updated all object 
+> db.products.updateMany({}, {$set: {active: true}})
+
+
+delete object one
+> db.products.deleteOne({name: 'iPhone 10'})
+
+delete object many
+> db.products.deleteMany({category: 'notebook'})
