@@ -18,3 +18,12 @@ $ npm add multer
 
 install mongoose for mongoDB connect
 $ npm install mongoose
+
+install bcrypt for secure the password..
+$ npm add bcrypt
+
+install jsonwebtoken for create token..
+$ npm add jsonwebtoken
+
+install dotenv for jwt secrete token...
+$ npm add dotenv

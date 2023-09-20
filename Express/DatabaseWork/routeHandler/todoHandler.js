@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const todoSchema = require('../schemas/todoSchema');
 
 const Todo = new mongoose.model("Todo", todoSchema);
+const checkLogin = require('../middlewares/checkLogin');
 
 // Todo active find using my instance method
 router.get('/active', async(req, res) =>{
@@ -65,7 +66,9 @@ router.get('/language', async(req, res) =>{
 });
 
 // GET ALL THE TODOS
-router.get('/', async(req, res) =>{
+router.get('/', checkLogin, async(req, res) =>{
+    console.log(req.username);
+    console.log(req.userId);
     try {
         const data = await Todo.find({status: 'active'});
         res.status(200).json({
