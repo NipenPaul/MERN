@@ -16,4 +16,28 @@ const todoSchema = mongoose.Schema({
     },
 });
 
+// instance methods
+todoSchema.methods = {
+    findActive: function(){
+        return mongoose.model('Todo').find({status: 'active'});
+    },
+    findInactive: function(){
+        return mongoose.model('Todo').find({status: 'inactive'});
+    },
+};
+
+// stattic mehtods
+todoSchema.statics = {
+    findByJS: function(){  // not work ()=> function, because this cannot find arrow function
+        return this.find({title: /js/i});
+    },
+};
+
+// query helpers
+todoSchema.query = {
+    byLanguage: function(language){
+        return this.find({title: new RegExp(language, "i")});
+    },
+};
+
 module.exports = todoSchema;
