@@ -1,0 +1,22 @@
+****************** TypeScript *********************
+
+** Superset of JavaScript created by Microsoft
+** Allows static strict typing
+** Extra features - interface, enums, tuples, generics
+** Supports modern features (arrow function, let, const)
+** Based on the .NET harmony specification
+** TypeScript = JavaScript
+** Compiles to JavaScript - runs everywhere
+** Familair OOP Programming
+** New features work everywhere
+
+**** Install ****
+** Install Node.js in machine
+** Install TypeScript Compiler
+
+**** Install Step ****
+$ sudo npm install -g typescript
+$ tsc --version
+$ tsc fileName.ts
+$ tsc --init
+$ tsc --watch
