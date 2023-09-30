@@ -1,8 +1,19 @@
+/*
+* Title: Main Server Page
+* Description: Handle all CRUD operations
+* Author: Nipen Paul
+* Date: 2023-09-28
+* 
+*/
+
+// External Module
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const Product = require('./models/productModel');
+
+// Internal Module
+const Product = require('../models/productModel');
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,10 +26,10 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 app.get('/api/products', async (req, res) => {
