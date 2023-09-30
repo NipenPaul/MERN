@@ -1,3 +1,11 @@
+/*
+* Title: Database Schema
+* Description: Product schema create
+* Author: Nipen Paul
+* Date: 2023-09-28
+* 
+*/
+
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
@@ -12,5 +20,4 @@ const productSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model('Product', productSchema);
-
 module.exports = Product;
