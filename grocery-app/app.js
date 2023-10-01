@@ -17,7 +17,6 @@ const Product = require('./models/productModel');
 
 // Import routers
 const productsRouter = require('./routes/products');
-const usersRouter = require('./routes/users');
 
 const app = express();
 app.use(bodyParser.json());
@@ -37,7 +36,6 @@ db.once('open', () => {
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/api/products', productsRouter); // Use the products router
-app.use('/api/users', usersRouter); // Use the users router
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
