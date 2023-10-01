@@ -22,7 +22,11 @@ const app = express();
 app.use(bodyParser.json());
 
 // Database Connection
-mongoose.connect('mongodb://localhost:27017/grocery', {
+// mongoose.connect('mongodb://localhost:27017/grocery', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+mongoose.connect('mongodb+srv://Nipen:174038@cluster0.uvc4mtm.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
