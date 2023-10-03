@@ -4,6 +4,10 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+const moment = require("moment");
+const http = require("http");
+
+// internal imports
 const loginRouter = require("./router/loginRouter");
 const inboxRouter = require("./router/inboxRouter");
 const usersRouter = require("./router/usersRouter");
@@ -14,8 +18,16 @@ const {
   errorHandler,
 } = require("./middlewares/common/errorHandler");
 
-const app = express();
 dotenv.config();
+
+const app = express();
+const server = http.createServer(app);
+// socket creation
+const io = require("socket.io")(server);
+global.io = io;
+
+// set comment as app locals
+app.locals.moment = moment;
 
 // database connection
 mongoose

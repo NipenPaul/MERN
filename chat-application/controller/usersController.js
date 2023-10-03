@@ -1,10 +1,10 @@
 // external imports
 const bcrypt = require("bcrypt");
-
-// internal imports
-const User = require("../models/Pepople");
 const { unlink } = require("fs");
 const path = require("path");
+
+// internal imports
+const User = require("../models/People");
 
 // get users page
 async function getUsers(req, res, next) {
@@ -35,6 +35,8 @@ async function addUser(req, res, next) {
       password: hashedPassword,
     });
   }
+
+  // save user or send error
   try {
     const result = await newUser.save();
     res.status(200).json({
@@ -58,9 +60,8 @@ async function removeUser(req, res, next) {
       _id: req.params.id,
     });
 
-    // remvoe user avatar if any
+    // remove user avatar if any
     if (user.avatar) {
-      // call unlink
       unlink(
         path.join(__dirname, `/../public/uploads/avatars/${user.avatar}`),
         (err) => {

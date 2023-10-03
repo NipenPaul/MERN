@@ -2,12 +2,14 @@ const { check, validationResult } = require("express-validator");
 
 const doLoginValidators = [
   check("username")
-    .isLength({ min: 1 })
-    .withMessage("Mobile number or email is required!"),
-  check("password").isLength({ min: 1 }).withMessage("Password is required!"),
+    .isLength({
+      min: 1,
+    })
+    .withMessage("Mobile number or email is required"),
+  check("password").isLength({ min: 1 }).withMessage("Password is required"),
 ];
 
-const doLoginvaldationHandler = function (req, res, next) {
+const doLoginValidationHandler = function (req, res, next) {
   const errors = validationResult(req);
   const mappedErrors = errors.mapped();
   if (Object.keys(mappedErrors).length === 0) {
@@ -24,5 +26,5 @@ const doLoginvaldationHandler = function (req, res, next) {
 
 module.exports = {
   doLoginValidators,
-  doLoginvaldationHandler,
+  doLoginValidationHandler,
 };

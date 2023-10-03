@@ -5,7 +5,7 @@ const path = require("path");
 const { unlink } = require("fs");
 
 // internal imports
-const User = require("../../models/Pepople");
+const User = require("../../models/People");
 
 // add user
 const addUserValidators = [
@@ -33,12 +33,12 @@ const addUserValidators = [
     .isMobilePhone("bn-BD", {
       strictMode: true,
     })
-    .withMessage("Mobile number must be a valid Bangladesh mobile number")
+    .withMessage("Mobile number must be a valid Bangladeshi mobile number")
     .custom(async (value) => {
       try {
         const user = await User.findOne({ mobile: value });
         if (user) {
-          throw createError("Moblie already is use!");
+          throw createError("Mobile already is use!");
         }
       } catch (err) {
         throw createError(err.message);
@@ -59,7 +59,7 @@ const addUserValidationHandler = function (req, res, next) {
   } else {
     // remove uploaded files
     if (req.files.length > 0) {
-      const { filname } = req.files[0];
+      const { filename } = req.files[0];
       unlink(
         path.join(__dirname, `/../public/uploads/avatars/${filename}`),
         (err) => {
@@ -75,4 +75,7 @@ const addUserValidationHandler = function (req, res, next) {
   }
 };
 
-module.exports = { addUserValidators, addUserValidationHandler };
+module.exports = {
+  addUserValidators,
+  addUserValidationHandler,
+};
